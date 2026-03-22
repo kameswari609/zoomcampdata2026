@@ -1,0 +1,11 @@
+
+
+Producer: python hw7_producer.py 
+Sent 476386 rows in 95.42 seconds
+Consumer: python hw7_consumer.py
+
+The producer sends messages to the green-trips topic.
+Redpanda (the Kafka broker) writes those messages to disk on the redpanda-1 container.
+The green-trips topic’s partitions are those log files on disk.
+So the data is stored in the green-trips topic itself. There is no separate database or table; the topic partitions are the storage.
+  
