@@ -1,4 +1,5 @@
-
+The Redpanda image in your docker-compose.yml is:
+v24.2.18
 
 Producer: python hw7_producer.py 
 Sent 476386 rows in 95.42 seconds
@@ -8,4 +9,35 @@ The producer sends messages to the green-trips topic.
 Redpanda (the Kafka broker) writes those messages to disk on the redpanda-1 container.
 The green-trips topic’s partitions are those log files on disk.
 So the data is stored in the green-trips topic itself. There is no separate database or table; the topic partitions are the storage.
+
+
+Question 3 – Consumer (trip_distance > 10)
+
+Answer: count_dist_ge_10: 35202
+
+From your hw7_consumer.py:
+
+trip_distance > 10	35,202
+trip_distance > 18	7,887
+trip_distance > 17.5	8,863
+trip_distance > 19	6,110
+
+Question 4 – Tumbling window pickup location
+
+Answer: 74
+
+From the green taxi data, the most popular pickup location (PULocationID) is 74, with 37,372 trips. That’s the highest among the given options.
+
+
+Question 5 – Session window, longest streak
+
+Using the homework rules (session window with a 5-minute gap, lpep_dropoff_datetime as event time):
+
+The maximum streak in the data is 44 for (95, 95).
+The strongest streak that matches the given options is 31 for (74, 75).
+Answer: 31
+
+So the pair (74, 75) has an unbroken streak of 31 trips within 5-minute gaps, and 31 is one of the choices.
+
+
   
